@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cyber: #0a0a0f;
+    --card-cyber: #12121a;
+    --muted-cyber: #1c1c2e;
+    --border-cyber: #2a2a3a;
+    --accent-neon: #00ff88;
+    --accent-magenta: #ff00ff;
+    --accent-cyan: #00d4ff;
+    --text-primary: #e0e0e0;
+    --text-muted: #6b7280;
+    --danger-neon: #ff3366;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-mono-tech {
+    font-family: 'Share Tech Mono', monospace;
+  }
+}
+
+/* Scanlines overlay */
+.scanline-effect {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 255, 136, 0.03) 50%,
+    rgba(0, 255, 136, 0.03)
+  );
+  background-size: 100% 4px;
+}
+
+/* Cyber Grid background */
+.cyber-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(42, 42, 58, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(42, 42, 58, 0.35) 1px, transparent 1px);
+}
+
+/* Chamfer cut corners */
+.chamfer-corner {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+.chamfer-corner-sm {
+  clip-path: polygon(
+    0 6px,
+    6px 0,
+    calc(100% - 6px) 0,
+    100% 6px,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    6px 100%,
+    0 calc(100% - 6px)
+  );
+}
+
+.chamfer-corner-lg {
+  clip-path: polygon(
+    0 16px,
+    16px 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
+}
+
+.chamfer-card {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+.chamfer-btn {
+  clip-path: polygon(
+    0 6px,
+    6px 0,
+    calc(100% - 6px) 0,
+    100% 6px,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    6px 100%,
+    0 calc(100% - 6px)
+  );
+}
+
+/* Neon Glows */
+.glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.25), inset 0 0 10px rgba(0, 255, 136, 0.1);
+}
+
+.glow-green-sm {
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+}
+
+.glow-magenta {
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.25);
+}
+
+.glow-red {
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.35), inset 0 0 10px rgba(255, 51, 102, 0.15);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6), 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(255, 51, 102, 0.6), 0 0 20px rgba(255, 51, 102, 0.3);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+}
+
+/* Glitch keyframe animations */
+@keyframes cyber-glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: -2px 0 #00d4ff, 2px 0 #ff00ff;
+  }
+  20% {
+    transform: translate(-2px, 1px);
+    text-shadow: 2px 0 #00d4ff, -2px 0 #ff00ff;
+  }
+  40% {
+    transform: translate(2px, -1px);
+    text-shadow: -2px 0 #00ff88, 2px 0 #ff00ff;
+  }
+  60% {
+    transform: translate(-1px, 2px);
+    text-shadow: 2px 0 #00ff88, -2px 0 #00d4ff;
+  }
+  80% {
+    transform: translate(1px, -1px);
+    text-shadow: -2px 0 #ff00ff, 2px 0 #00d4ff;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: -1px 0 #00d4ff, 1px 0 #ff00ff;
+  }
+}
+
+.animate-cyber-glitch {
+  animation: cyber-glitch 2.5s infinite linear alternate-reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cyber-glitch,
+  .animate-pulse,
+  .animate-spin {
+    animation: none !important;
+  }
+}
+
+/* Custom cyber scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff88;
+}

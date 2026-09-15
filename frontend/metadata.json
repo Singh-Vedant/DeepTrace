@@ -1,0 +1,6 @@
+{
+  "name": "DeepTrace - Deepfake Forensics",
+  "description": "AI-Powered Deepfake Detection and Forensic Analysis System based on DeepfakeBench and Xception architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
